@@ -4,27 +4,27 @@ COLORS:
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
 
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ================= BODY ================= */
 body {
   font-family: "Lato", sans-serif;
   width: 100%;
   height: 100%;
   font-weight: 400;
   font-size: 16px;
-  /* ye default line height ko multiply kar deta hai ex: default * 1.7  */
   line-height: 1.7;
-  /* yha text color ko define =kar rhe hai  */
   color: #777;
 }
 
+/* ================= HEADER ================= */
 .header {
   height: 95vh;
   background-image:
@@ -36,82 +36,144 @@ body {
     url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
-  overflow: hidden;
   clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
   position: relative;
+  overflow: hidden;
 }
 
+/* ================= LOGO ================= */
 .logo {
   height: 40px;
   position: absolute;
   top: 40px;
   left: 40px;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
 }
 
+.logo:hover {
+  transform: translateY(-20px);
+  opacity: 0.9;
+}
+
+/* ================= HEADER TEXT ================= */
 .header-text {
   position: absolute;
-  line-height: 1.5;
-  color: white;
+  color: #fff;
   left: 50%;
   top: 40%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .top-head {
   font-size: 54px;
   letter-spacing: 20px;
-  animation: moveInLeft;
-  animation-timing-function: ease-in-out;
-  animation-duration: 2s;
+  animation: moveInLeft 2s ease-in-out;
 }
 
 .top-para {
   font-size: 24px;
   letter-spacing: 8px;
   margin-bottom: 36px;
-  animation: moveInRight;
-  animation-duration: 2s;
-  animation-timing-function: ease-in-out;
+  animation: moveInRight 2s ease-in-out;
 }
 
-.head-btn {
-  font-size: 16px;
-  padding: 12px 24px;
-  border-radius: 40px;
-  border: none;
-  color: #777;
-  position: absolute;
-  left: 25%;
-}
-
+/* ================= TEXT ANIMATIONS ================= */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translate(-100px);
+    transform: translateX(-100px);
   }
-
   80% {
-    transform: translate(20px);
+    transform: translateX(20px);
   }
-
   100% {
     opacity: 1;
-    transform: translate(0);
+    transform: translateX(0);
   }
 }
 
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translate(100px);
+    transform: translateX(100px);
   }
-
   80% {
-    transform: translate(-20px);
+    transform: translateX(-20px);
   }
-
   100% {
     opacity: 1;
-    transform: translate(0);
+    transform: translateX(0);
+  }
+}
+
+/* ================= BUTTON WRAPPER (ENTRY ANIMATION) ================= */
+.btn-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bottomUplogo 0.6s ease-out 0.75s forwards;
+  opacity: 0;
+}
+
+/* ================= BUTTON ================= */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: #777;
+  background-color: #fff;
+  border-radius: 40px;
+  position: relative;
+  display: inline-block;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Active effect */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= RIPPLE EFFECT ================= */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background-color: #fff;
+  z-index: -1;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.btn:hover::after {
+  transform: scale(1.4);
+  opacity: 0;
+}
+
+/* ================= BUTTON ENTRY ANIMATION ================= */
+@keyframes bottomUplogo {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
