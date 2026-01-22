@@ -1,0 +1,117 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  /* ye default line height ko multiply kar deta hai ex: default * 1.7  */
+  line-height: 1.7;
+  /* yha text color ko define =kar rhe hai  */
+  color: #777;
+}
+
+.header {
+  height: 95vh;
+  background-image:
+    linear-gradient(
+      to right bottom,
+      rgba(123, 255, 67, 0.875),
+      rgba(40, 99, 31, 0.8)
+    ),
+    url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
+  position: relative;
+}
+
+.logo {
+  height: 40px;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.header-text {
+  position: absolute;
+  line-height: 1.5;
+  color: white;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.top-head {
+  font-size: 54px;
+  letter-spacing: 20px;
+  animation: moveInLeft;
+  animation-timing-function: ease-in-out;
+  animation-duration: 2s;
+}
+
+.top-para {
+  font-size: 24px;
+  letter-spacing: 8px;
+  margin-bottom: 36px;
+  animation: moveInRight;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
+.head-btn {
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 40px;
+  border: none;
+  color: #777;
+  position: absolute;
+  left: 25%;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-100px);
+  }
+
+  80% {
+    transform: translate(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translate(100px);
+  }
+
+  80% {
+    transform: translate(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

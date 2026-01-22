@@ -1,0 +1,6 @@
+{
+    "workbench.settings.useSplitJSON": true,
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "css.autoValidation": "Always",
+    "html-css-class-completion.enableEmmetSupport": true
+}
