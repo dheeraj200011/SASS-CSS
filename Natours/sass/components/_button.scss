@@ -1,0 +1,58 @@
+/* ================= BUTTON WRAPPER ================= */
+
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    font-size: 1rem; /* 16px */
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    text-decoration: none;
+    border-radius: 2.5rem; /* 40px */
+    position: relative;
+    display: inline-block;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  /* ================= BUTTON MODIFIERS ================= */
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+  }
+
+  &--animated {
+    animation: bottomUp 0.6s ease-out 0.75s forwards;
+    opacity: 0;
+  }
+
+  /* Hover */
+  &:hover {
+    transform: translateY(-0.1875rem); /* -3px */
+    box-shadow: 0 0.625rem 1.25rem rgba($color-black, 0.2); /* 10px 20px */
+
+    &::after {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  /* Active */
+  &:active {
+    transform: translateY(-0.0625rem); /* -1px */
+    box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2); /* 5px 10px */
+  }
+
+  /* ================= RIPPLE ================= */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 6.25rem; /* 100px */
+    background-color: $color-white;
+    z-index: -1;
+    transition:
+      transform 0.4s ease,
+      opacity 0.4s ease;
+  }
+}

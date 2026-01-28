@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass --watch sass/main.scss:css/style.css"
+    "compile:sass": "sass --watch sass/main.scss:css/style.css",
+    "dev": "live-server"
   },
   "keywords": [],
-  "author": "",
+  "author": "dheeraj",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
     "jquery": "^4.0.0",
+    "live-server": "^1.2.2",
     "sass": "^1.97.3"
   }
 }
